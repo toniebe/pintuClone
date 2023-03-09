@@ -11,6 +11,7 @@ import {
   priceChangesProp,
 } from "../../types/supportedCurrencies";
 import { FlashList } from "@shopify/flash-list";
+import TextInputCustom from "../../components/TextInputCustom";
 
 interface JoinData extends priceChangesProp {
   name?: string;
@@ -32,6 +33,8 @@ interface Sortable {
 const market = () => {
   const { supportedCurrencies } = useContext(AppContext);
   const [mergeData, setMergerData] = useState<JoinData[]>([]);
+  const [searchValue, setSearchValue] = useState<string>("");
+  const [filterData, setFilterData] = useState<JoinData[]>([]);
 
   function joinArrays(
     changePrice: priceChangesProp[],
@@ -77,31 +80,42 @@ const market = () => {
 
   const fetchChangesData = async () => {
     let response = await getPriceChange();
+    // console.log(response.code, ' + ', Platform.OS);
+
     if (response.code === "success") {
       const mergedDataExample = joinArrays(
         response.payload,
         supportedCurrencies
       );
-      const sortedData = sortByProperty(mergedDataExample, "latestPrice", true);
+      const sortedData = sortByProperty(mergedDataExample, "name", true);
+
       setMergerData(sortedData);
     }
   };
+
+  const filteredItems = mergeData.filter((item) =>
+    item.name?.toLowerCase().includes(searchValue.toLowerCase())
+  );
 
   useEffect(() => {
     fetchChangesData();
     const intervalId = setInterval(() => {
       fetchChangesData();
-    }, 3000);
+    }, 1000);
 
     return () => clearInterval(intervalId);
   }, []);
 
   return (
     <View style={styles.container}>
+      <TextInputCustom
+        value={searchValue}
+        onChangeText={(text) => setSearchValue(text)}
+        placeholder={"Cari nama blockchain"}
+      />
       <FlashList
         estimatedItemSize={200}
-        extraData={supportedCurrencies}
-        data={mergeData}
+        data={filteredItems}
         showsVerticalScrollIndicator={false}
         renderItem={({ item, index }: renderItemMobileProps) => (
           <CardMarketMobile
