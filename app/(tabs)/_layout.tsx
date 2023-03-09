@@ -4,15 +4,6 @@ import { Image, Pressable, useColorScheme } from "react-native";
 
 import Colors from "../../constants/Colors";
 
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -26,8 +17,41 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Tab One",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: "Home",
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <Image
+              source={require("../../assets/images/tabIcon/home.png")}
+              style={{ width: 25, height: 25, tintColor: color }}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="discover"
+        options={{
+          headerShown: false,
+          title: "discover",
+          tabBarIcon: ({ color }) => (
+            <Image
+              source={require("../../assets/images/tabIcon/discover.png")}
+              style={{ width: 25, height: 25, tintColor: color }}
+            />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="market"
+        options={{
+          headerShown: false,
+          title: "market",
+          tabBarIcon: ({ color }) => (
+            <Image
+              source={require("../../assets/images/tabIcon/market.png")}
+              style={{ width: 25, height: 25, tintColor: color }}
+            />
+          ),
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -45,33 +69,13 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
-        options={{
-          title: "Tab Two",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="home"
+        name="wallet"
         options={{
           headerShown: false,
-          title: "home",
+          title: "Wallet",
           tabBarIcon: ({ color }) => (
             <Image
-              source={require("../../assets/images/tabIcon/home.png")}
-              style={{ width: 25, height: 25, tintColor: color }}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="discover"
-        options={{
-          headerShown: false,
-          title: "discover",
-          tabBarIcon: ({ color }) => (
-            <Image
-              source={require("../../assets/images/tabIcon/discover.png")}
+              source={require("../../assets/images/tabIcon/wallet.png")}
               style={{ width: 25, height: 25, tintColor: color }}
             />
           ),
