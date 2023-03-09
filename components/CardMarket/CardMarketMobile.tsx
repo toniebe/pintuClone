@@ -48,20 +48,20 @@ const CardMarketMobile = ({
 
   useEffect(() => {
     Animated.loop(
-      Animated.sequence([
-        Animated.timing(colorAnimation, {
-          toValue: 1,
-          duration: 3000,
-          useNativeDriver: false,
-        }),
-        Animated.timing(colorAnimation, {
-          toValue: 0,
-          duration: 2000,
-          useNativeDriver: false,
-        }),
-      ])
+    Animated.sequence([
+      Animated.timing(colorAnimation, {
+        toValue: 1,
+        duration: 3000,
+        useNativeDriver: false,
+      }),
+      Animated.timing(colorAnimation, {
+        toValue: 0,
+        duration: 3000,
+        useNativeDriver: false,
+      }),
+    ])
     ).start();
-  }, []);
+  }, [fluctuation]);
 
   const colorScheme = useColorScheme();
 
@@ -78,27 +78,27 @@ const CardMarketMobile = ({
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
-        {Platform.OS === "web" ? (
-          <View style={{ backgroundColor: backgroundColor, borderRadius: 50 }}>
+        <View style={{ backgroundColor: backgroundColor, borderRadius: 50 }}>
+          {Platform.OS === "web" ? (
             <Image source={{ uri: uri }} style={{ width: 40, height: 40 }} />
-          </View>
-        ) : (
-          //   <SvgXml
-          //     xml={imgXml.replace(
-          //       /fill=(["'])(?:(?=(\\?))\2.)*?\1/g,
-          //       `fill="${whiteColor}"`
-          //     )}
-          //     width={40}
-          //     height={40}
-          //   />
-          <SvgUri
-            uri={uri}
-            width={40}
-            height={40}
-            fill={whiteColor}
-            fillRule="evenodd"
-          />
-        )}
+          ) : (
+            //   <SvgXml
+            //     xml={imgXml.replace(
+            //       /fill=(["'])(?:(?=(\\?))\2.)*?\1/g,
+            //       `fill="${whiteColor}"`
+            //     )}
+            //     width={40}
+            //     height={40}
+            //   />
+            <SvgUri
+              uri={uri}
+              width={40}
+              height={40}
+              fill={colorScheme === "dark" ? whiteColor : blackColor}
+              color={'#eeeeff'}
+            />
+          )}
+        </View>
       </View>
       <View style={[styles.contentContainer, { flex: 1, marginLeft: 10 }]}>
         <Text style={styles.textBold}>{blockChainName}</Text>
