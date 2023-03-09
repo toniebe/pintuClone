@@ -4,7 +4,6 @@ import { Image, Pressable, useColorScheme } from "react-native";
 
 import Colors from "../../constants/Colors";
 
-
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
@@ -76,6 +75,19 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <Image
               source={require("../../assets/images/tabIcon/wallet.png")}
+              style={{ width: 25, height: 25, tintColor: color }}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="account"
+        options={{
+          headerShown: false,
+          title: "account",
+          tabBarIcon: ({ color }) => (
+            <Image
+              source={require("../../assets/images/tabIcon/account.png")}
               style={{ width: 25, height: 25, tintColor: color }}
             />
           ),
