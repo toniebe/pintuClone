@@ -1,5 +1,15 @@
+const greenPrimary = '#328e62';
+const redPrimary = '#e63f3e';
+const whiteColor = '#ffffff';
+const blackColor = '#000000';
 const tintColorLight = '#202020';
 const tintColorDark = '#fff';
+
+export {
+  greenPrimary, redPrimary,
+  tintColorDark, tintColorLight,
+  whiteColor, blackColor
+}
 
 export default {
   light: {
