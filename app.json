@@ -13,17 +13,24 @@
       "backgroundColor": "#ffffff"
     },
     "extra": {
-      "BASE_URL": "https://api.pintu.co.id/v2"
+      "BASE_URL": "https://api.pintu.co.id/v2",
+      "eas": {
+        "projectId": "bcc2e0cf-1070-4ed7-a45d-98ecb7627b5b"
+      }
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.pintuClone"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/pintu.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.pintuClone"
     },
     "web": {
       "bundler": "metro",

@@ -1,5 +1,6 @@
-import Constants  from "expo-constants";
+import Constants from "expo-constants";
 export async function callApi<T>(url: string, method: string, body?: any): Promise<T> {
+
     const response = await fetch(`${Constants.expoConfig?.extra?.BASE_URL}/${url}`, {
         method,
         headers: {

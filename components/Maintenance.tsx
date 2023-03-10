@@ -8,16 +8,11 @@ import AnimatedLottieView from "lottie-react-native";
 import Svg, { Path, Defs, LinearGradient, Stop } from "react-native-svg";
 const Maintenance = () => {
   const colorScheme = useColorScheme();
- 
+
   return (
     <View style={styles.container}>
       {Platform.OS === "web" ? (
-        <Svg
-          width={75}
-          height={16}
-          viewBox="0 0 75 16"
-          fill="#0B0A0A"
-        >
+        <Svg width={75} height={16} viewBox="0 0 75 16" fill="#0B0A0A">
           <Path
             d="M37.9728 0H33.4497C31.2197 0 29.4104 1.8093 29.4104 4.03929V15.3366H31.7877V4.03929C31.7877 3.11359 32.524 2.37729 33.4497 2.37729H37.9728C38.8985 2.37729 39.6348 3.11359 39.6348 4.03929V15.3366H42.0121V4.03929C42.0121 1.8093 40.2029 0 37.9728 0Z"
             fill="url(#___SVG_ID__2__0___)"
@@ -48,10 +43,14 @@ const Maintenance = () => {
           style={{
             width: 100,
             height: 100,
-            
+
             // paddingHorizontal: 20,
           }}
-          source={colorScheme === 'dark' ? require("../assets/images/lottie/pintu-white.json") : require("../assets/images/lottie/pintu.json")}
+          source={
+            colorScheme === "dark"
+              ? require("../assets/images/lottie/pintu-white.json")
+              : require("../assets/images/lottie/pintu.json")
+          }
         />
       )}
       <View style={styles.helpContainer}>
