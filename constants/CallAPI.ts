@@ -5,7 +5,9 @@ export async function callApi<T>(url: string, method: string, body?: any): Promi
         method,
         headers: {
             'Content-Type': 'application/json',
-            "Access-Control-Allow-Origin": "*"
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Methods': 'POST, GET, PATCH, DELETE',
+            'Access-Control-Allow-Origin': 'https://pintuclone.netlify.app'
         },
         body: JSON.stringify(body)
     });
