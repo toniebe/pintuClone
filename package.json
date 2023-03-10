@@ -7,7 +7,7 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "build": "expo export",
+    "buildWeb": "expo export --platform web && cd dist && echo '/* /index.html 200' > '_redirects'",
     "runbuildWeb": "npx serve dist --single"
   },
   "jest": {
