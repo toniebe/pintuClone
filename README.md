@@ -7,8 +7,8 @@
 <img src="./assets/expo.png" width="200" height="400" />
 <br/>
 
-1. install expo go in you're app
-2. scan QR code or you cant copy this link to expo go app
+1. install expo go in you're device
+2. scan QR code or you cant copy this link `exp://exp.host/@toniebe/pintuClone?release-channel=default`
 3. go to tab market for view list currency 
 
 __Note__:
